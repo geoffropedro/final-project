@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><?php echo $__env->yieldContent('page_title', 'CMS'); ?></title>
+	<!-- Bootstrap core CSS -->
+	<?php echo HTML::style('packages/geoffmillar/admin/css/style.css'); ?>
+	<?php echo HTML::script('packages/geoffmillar/admin/vendor/ckeditor/ckeditor.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/admin/js/script.js'); ?>
+	<?php echo $__env->yieldContent('header'); ?>
+</head>
+
+<body>
+	<?php $__env->startSection('top'); ?>
+	<?php echo $__env->make('admin::partials.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->yieldSection(); ?>
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-sm-12 col-md-12 main">
+				<?php $__env->startSection('main'); ?>
+				<?php echo $__env->yieldSection(); ?>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+	<?php echo HTML::script('packages/geoffmillar/admin/js/colour-picker/jscolor.js'); ?>
+
+	<script>
+	CKEDITOR.replace( 'wysiwyg',{
+		filebrowserBrowseUrl: "<?php echo asset('packages/geoffmillar/admin/php/browse.php') ?>"
+	});
+	</script>
+	<?php echo $__env->yieldContent('footer'); ?>
+</body>
+</html>

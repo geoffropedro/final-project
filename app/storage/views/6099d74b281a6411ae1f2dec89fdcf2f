@@ -1,0 +1,29 @@
+
+<?php $__env->startSection('booking-content'); ?>
+
+<h1 class="bigText">Booking Schedule</h1>
+<p>Here you can search the database of bookings, enter the period that you want to search, it will search on the <b>Outbound/Inbound</b> dates. Searches start from 00:00 on the FROM date to 23:59 on the TO date.</p><br/>
+
+
+<div id="booking-report"></div>
+<script type="text/javascript">
+Ext.onReady(function(){
+	Ext.QuickTips.init();
+
+	var panel = new B2.Booking.BookingReportPanel({
+		title: 'Booking Schedule',
+		height: 500,
+		renderTo: 'booking-report',
+		collapsible: true
+	});
+
+	Ext.EventManager.onWindowResize(resizeGrid);
+	function resizeGrid()
+	{
+		panel.doLayout();
+	}
+});
+</script>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('airport-booking::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,32 @@
+
+<?php $__env->startSection('booking-content'); ?>
+
+<h1 class="bigText">Blocked Dates</h1>
+<p>Here you can block dates to stop parking being booked</p><br/>
+
+<div id="datepanel"></div>
+
+<script type="text/javascript">
+Ext.onReady( function() {
+	
+	Ext.QuickTips.init();
+	
+	var panel = new B2.Booking.BlockedDateGridPanel({
+		title: 'Blocked Dates List',
+		height: 500,
+		renderTo: 'datepanel',
+		collapsible: true
+	});
+
+	Ext.EventManager.onWindowResize(resizeGrid);
+	function resizeGrid()
+	{
+		panel.getView().refresh();
+	}
+	
+});
+</script>
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('airport-booking::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

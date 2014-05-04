@@ -1,0 +1,33 @@
+<?php $__env->startSection('body_class', 'login'); ?>
+
+<?php $__env->startSection('main'); ?>
+	<?php echo HTML::image('packages/geoffmillar/admin/images/logo.png','logo', ['class' => 'client-logo']); ?>
+
+	<?php echo Form::open(array('url' => 'admin/login', 'class' => 'form-signin')); ?>
+		<div class="login-container">
+		<div class="page-header">
+			<h1 class="login-heading">Login</h1>
+		</div>
+			<?php if(Session::has('error')): ?>
+				<div class="alert alert-danger"><?php echo Session::get('error'); ?></div>
+			<?php elseif(Session::has('message')): ?>
+				<div class="alert alert-danger"><?php echo Session::get('message'); ?></div>
+			<?php endif; ?>
+
+			<div class="input-group">
+				<label for="email" class="input-group-addon"><i class="fa fa-user"></i></label>
+				<?php echo Form::email('email', '', array('id' => 'email', 'class' => 'form-control', 'placeholder'=>'Email Address')); ?>
+			</div>
+			<div class="input-group">
+				<label for="password" class="input-group-addon"><i class="fa fa-lock"></i></label>
+				<?php echo Form::password('password',  array('id' => 'password', 'class' => 'form-control', 'placeholder'=>'Password')); ?>
+			</div>
+			<?php echo Form::submit('Login', array('class' => 'btn btn-lg btn-primary pull-right')); ?>
+		</div>
+		<div class="login-footer">
+				<?php /*link_to('admin/password/remind', 'Reset your password');*/ ?>
+		</div>
+	<?php echo Form::close(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin::layouts.bare', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

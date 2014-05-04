@@ -1,0 +1,28 @@
+
+<?php $__env->startSection('main'); ?>
+@parent
+<?php echo Form::model($model, array('method' => $method, 'action' => $action, 'role' => 'form', 'files' => true)); ?>
+	<div class="form-row discrete">
+		<?php echo $__env->make('admin::partials.save', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	</div>
+
+	<h2><?php echo $__env->yieldContent('heading'); ?></h2>
+
+	<?php foreach($fields as $field): ?>
+
+	 <div class="form-group<?php echo e(($field->getErrors($errors)) ? ' bs-callout bs-callout-danger' : ''); ?>">
+		<?php echo $field->getLabel(array('for' => $field->title)); ?>
+		<?php echo $field->getInput(array('class' => 'form-control', 'id' => $field->title)); ?>
+		<?php echo $field->getErrors($errors); ?>
+	</div>
+	<?php endforeach; ?>
+
+	<div class="form-row">
+		<?php echo $__env->make('admin::partials.save', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	</div>
+	
+<?php echo Form::close(); ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

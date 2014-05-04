@@ -1,0 +1,22 @@
+{
+    "name": "geoffmillar/airport-booking",
+    "description": "",
+    "authors": [
+        {
+            "name": "Geoff Millar",
+            "email": "geoff@pixperfect.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "GeoffMillar\\AirportBooking\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

@@ -1,0 +1,8 @@
+<ul class="list-group">
+  <li class="list-group-item"><?php echo HTML::link('admin/bookings/schedule',	'Schedule'); ?></li>
+  <li class="list-group-item"><?php echo HTML::link('admin/bookings/invoice',	'Invoice'); ?></li>
+  <li class="list-group-item"><?php echo HTML::link('admin/bookings/admin',		'Admin'); ?></li>
+  <li class="list-group-item"><?php echo HTML::link('admin/bookings/price',		'Price'); ?></li>
+  <li class="list-group-item"><?php echo HTML::link('admin/bookings/blocked',	'Blocked'); ?></li>
+  <li class="list-group-item"><?php echo HTML::link('admin/bookings/rate',		'Rate'); ?></li>
+</ul>

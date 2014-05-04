@@ -1,0 +1,4 @@
+
+<?php $__env->startSection('heading', 'Edit ' . $modelName); ?>
+
+<?php echo $__env->make('admin::form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

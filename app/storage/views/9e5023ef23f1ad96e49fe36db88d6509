@@ -1,0 +1,30 @@
+
+<?php $__env->startSection('content'); ?>
+<?php echo $page->content; ?>
+
+<h3 id="guts">Application guts</h3>
+<pre>
+	<?php
+
+	$var = (isset($_GET['dir'])) ? $_GET['dir'] : '';
+	$dir    = base_path().$var;
+
+	if (is_dir($dir))
+	{
+		$files = scandir($dir);
+		foreach ($files as $i => $file)
+		{
+			echo "[$i]"; 
+			echo "<a href='".URL::to('/')."?dir=$var/$file#guts'>$file</a>";
+			echo "<br/>";
+		}
+	} 
+	else 
+	{
+		echo "Not a directory";
+	}
+	?>
+</pre>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('themes.'.$settings->websiteTheme.'.layouts.'.$settings->layout, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,55 @@
+
+<?php $__env->startSection('header'); ?>
+	<?php echo HTML::style('packages/geoffmillar/airport-booking/js/packages/ext/resources/css/ext-all.css'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/calendar.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/ext/adapter/ext/ext-base.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/ext/ext-all.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2.Search/B2.Search.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2.Search/B2.Search.SearchPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Price/B2.Price.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Price/B2.Price.PriceGridPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.RateCard/B2.RateCard.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.RateCard/B2.RateCard.RateCardDialog.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.RateCard/B2.RateCard.RateCardCostPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.RateCard/B2.RateCard.RateCardGrid.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.User/B2.User.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.User/B2.User.UserPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.User/B2.User.UserDialog.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.User/B2.User.UserGridPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.User/B2.User.UserGridDialog.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.User/B2.User.UserListPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.BlockedDatePanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.BlockedDateDialog.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.BlockedDateGridPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.BookingPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.BookingDialog.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.BookingGridPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.BookingListPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.BookingReportPanel.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.BookingReportGrid.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/B2/B2.Booking/B2.Booking.BookingInvoiceGrid.js'); ?>
+	<?php echo HTML::script('packages/geoffmillar/airport-booking/js/packages/B2/Ext.ux.form.XDateField.js'); ?>
+	<style>
+	.bigText {font-size:28px;}
+	</style>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('main'); ?>
+@parent
+
+<div class="row">
+	<div class="col-sm-1">
+	<?php echo $__env->make('airport-booking::partials.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	</div>
+
+	<div class="col-sm-11">
+		<?php echo $__env->yieldContent('booking-content'); ?>
+	</div>
+
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

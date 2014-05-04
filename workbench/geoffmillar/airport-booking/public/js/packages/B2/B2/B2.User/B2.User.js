@@ -1,0 +1,1 @@
+Ext.namespace( "B2.User" );

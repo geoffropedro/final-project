@@ -1,0 +1,41 @@
+
+<?php $__env->startSection('main'); ?>
+@parent
+<?php echo $__env->make('admin::partials.new', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<h1><?php echo $modelName; ?></h1>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<?php if (isset($columns[0])): ?>
+			<?php foreach ($columns[0] as $name => $value): ?>
+			<td><b><?php echo $name; ?></b></td>
+			<?php endforeach; ?>
+			<?php endif; ?>
+		</thead>
+
+		<?php foreach ($instances as $i => $model): ?>
+		<tr>
+			<?php foreach ($columns[$i] as $name => $value): ?>
+			<td><?php echo $value; ?></td>
+			<?php endforeach; ?>
+			<td class="no-wrap" width="160">
+				<?php echo Form::model($model, array('action' => array($controller . '@destroy', $model->id), 'method' => 'DELETE')); ?>
+			
+				<?php if (Auth::user()->auth != 'User' && $editable): ?>
+				<button class="btn btn-danger btn-sm pull-right" type="submit" onclick="return confirmDelete()"><i class="fa fa-minus-square"></i> Delete</button>
+				<?php endif; ?>
+				<?php echo Form::close(); ?>
+
+				<?php (Auth::user()->auth == 'User' && Auth::user()->name != $model->name) ? $hide = 'hide' : $hide = '' ;  ?>
+				<a style="margin-right:5px" href="<?php echo URL::action($controller . '@edit', array($model->id)); ?>" class="btn btn-primary btn-sm pull-right <?php echo $hide; ?>" type="submit">
+					<i class="fa fa-pencil"></i>Edit
+				</a>
+			</td>
+		</tr>
+		<?php endforeach; ?> 
+	</table>
+</div>
+<?php echo $__env->make('admin::partials.new', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

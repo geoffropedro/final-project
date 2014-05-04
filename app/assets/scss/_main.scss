@@ -1,0 +1,136 @@
+/* ------------------------------------------------------------- */
+// VARS  61A8F4
+/* ------------------------------------------------------------- */
+.theme-colour 	{color:$themeColor1}
+.osb 			{font-family: 'Open Sans', sans-serif; font-weight:700}
+
+/* ------------------------------------------------------------- */
+// GLOBAL 
+/* ------------------------------------------------------------- */
+body 			{background: $backgroundColor; padding: 10px 0  30px 0; }
+.pageWrap 		{background: white; padding: 40px 50px}
+.full-width 	{margin-left:-15px; margin-right:-15px;}
+.container 		{max-width:1200px}
+
+a, a:active, 
+a:focus 		{outline: none;}
+
+.app-messages 	{margin-top: 20px}
+.h-bg 			{background:#61A8F4; padding:8px 20px 7px 20px; color:white; font-family: 'Open Sans', sans-serif; font-weight:700 }
+
+h1 				{margin-top:0}
+
+
+/* ------------------------------------------------------------- */
+// SIDEBAR 
+/* ------------------------------------------------------------- */
+.box 			{@include border-radius(10px); padding: 20px; margin-bottom: 20px}
+.box h3			{margin-top:0;  @extend .osb}
+.grey-gradient  {@include linear-gradient(#DCDCDC,darken(#DCDCDC, 25%))}
+.theme-gradient {@include linear-gradient(lighten($themeColor1, 10%), darken($themeColor1, 10%))}
+
+
+.grey-gradient h3 {color: $themeColor1;}
+
+
+
+/* ------------------------------------------------------------- */
+// HEADER 
+/* ------------------------------------------------------------- */
+.site-title 				{font-size: 35px; color: $themeColor1; font-family: 'Open Sans', sans-serif; font-weight:700}
+.navbar 					{margin-top: 20px; background: $themeColor1; }
+.navbar a 					{color: $navColour!important; font-size: 15px; font-weight: bold}
+.navbar .dropdown-menu a 	{color:black!important}
+.navbar li:hover			{background: darken($themeColor1, 10%)}
+
+
+.navbar .dropdown-toggle:visited,  
+.navbar .dropdown-toggle:active, 			
+.navbar .dropdown-toggle:focus 			{background:none!important}
+
+
+/* ------------------------------------------------------------- */
+// SLIDER 
+/* ------------------------------------------------------------- */
+#main-slider 	{margin-bottom: 40px}
+
+
+
+/* ------------------------------------------------------------- */
+// FOOTER 
+/* ------------------------------------------------------------- */
+.footer-tier-1 	{background: #666666; padding: 20px 30px}
+.footer-tier-2 	{background: #999999; padding: 20px 30px; color: white}
+
+
+/* ------------------------------------------------------------- */
+// BUTTONS 
+/* ------------------------------------------------------------- */
+.btn-theme 		{
+	@include linear-gradient($themeColor1,darken($themeColor1, 25%));
+	border-color: $themeColor1;
+	color: $navColour;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+}
+
+
+
+/* ------------------------------------------------------------- */
+// FORM 
+/* ------------------------------------------------------------- */
+.form-wrap {
+	border: 5px solid #D90000;
+	@include border-radius(20px);
+	padding: 15px 10px 0 20px;
+	max-width: 490px;
+	background-color:rgba(255,255,255,0.8);
+	position: absolute;
+	margin-top: -300px;
+	margin-left: 50px;
+
+}
+
+
+.form-wrap label{
+	margin: 0
+}
+
+.form-wrap button {
+	margin-top: 19px
+}
+
+/* ------------------------------------------------------------- */
+// RESPONSIVE 
+/* ------------------------------------------------------------- */
+
+/* Large desktops */
+@media (min-width: 1200px) {}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+
+.form-wrap {margin:0 0 30px 0;position: relative; background: #EFEFEF}
+
+.pageWrap  {padding:10px}
+
+}
+
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+
+}
+
+/* Tablets and up */
+@media (min-width: 767px) {
+	
+
+
+}
+
