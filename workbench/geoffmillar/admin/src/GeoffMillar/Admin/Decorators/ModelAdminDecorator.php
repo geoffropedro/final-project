@@ -2,10 +2,12 @@
 
 use Eloquent;
 
+//Abstract to add functionality
 abstract class ModelAdminDecorator
 {
 	protected $model;
 
+	//Use elequent 
 	public function __construct(Eloquent $model)
 	{
 		$this->model = $model;

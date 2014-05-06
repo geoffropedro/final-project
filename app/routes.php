@@ -1,4 +1,4 @@
 <?php
 
-Route::post('quote',   							'quoteController@index');
-Route::post('customer-details', 				'customerDetailsController@index');
+Route::post('quote',   							'QuoteController@index');
+Route::post('customer-details', 				'CustomerDetailsController@index');

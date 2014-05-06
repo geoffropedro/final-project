@@ -21,13 +21,14 @@
 			@endforeach
 			<td class="no-wrap" width="160">
 				{{ Form::model($model, array('action' => array($controller . '@destroy', $model->id), 'method' => 'DELETE')) }}
-			
+				
 				@if (Auth::user()->auth != 'User' && $editable)
 				<button class="btn btn-danger btn-sm pull-right" type="submit" onclick="return confirmDelete()"><i class="fa fa-minus-square"></i> Delete</button>
 				@endif
 				{{ Form::close() }}
-
-				<?php (Auth::user()->auth == 'User' && Auth::user()->name != $model->name) ? $hide = 'hide' : $hide = '' ;  ?>
+				<?php
+				(Auth::user()->auth == 'User' && Auth::user()->username != $model->username) ? $hide = 'hide' : $hide = '' ; 
+				?>
 				<a style="margin-right:5px" href="{{ URL::action($controller . '@edit', array($model->id)) }}" class="btn btn-primary btn-sm pull-right {{$hide}}" type="submit">
 					<i class="fa fa-pencil"></i>Edit
 				</a>

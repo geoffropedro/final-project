@@ -3,37 +3,52 @@
 use GeoffMillar\Admin\Models\Page;
 use GeoffMillar\Theme\Models\Theme;
 use Illuminate\Support\Facades\HTML;
-use File, Route;
+use File, Route, Auth;
 
 class PageAdminDecorator extends ModelAdminDecorator
 {
 	protected $templateFields;
 
+	//Construct parent and get the select template fields
 	public function __construct(Page $page)
 	{
 		parent::__construct($page);
 		$this->templateFields = $this->getTemplates();
 	}
 
+	//Scan directory for templates
 	public static function getTemplates()
 	{
-		$files = File::files(app_path()."/views");
+		//If developer get all templates
+		if (Auth::user()->auth == "Developer")
+		{
+			$files = File::files(app_path()."/views");
 
-		if (Route::getRoutes()->hasNamedRoute('admin.themes.index')){
-			$theme = New Theme;
-			$theme = $theme->getByKey('websiteTheme');
-			$files = File::files(app_path()."/views/themes/".$theme->value);
-		}
+			//If themes package is being used
+			if (Route::getRoutes()->hasNamedRoute('admin.themes.index')){
+				$theme = New Theme;
+				$theme = $theme->getByKey('websiteTheme');
+				$files = File::files(app_path()."/views/themes/".$theme->value);
+			}
 
-		$templates = array();
+			$templates = array();
 
-		foreach($files as $file) {
-			$file = substr($file, 0, strpos($file, '.'));
-			$templates[basename($file)] = basename($file);
+			//Add to tempolates array
+			foreach($files as $file) {
+				$file = substr($file, 0, strpos($file, '.'));
+				$templates[basename($file)] = basename($file);
+			}
+
+		} 
+		else 
+		{
+			//Only return the page template
+			$templates['page'] = 'page';
 		}
 		return $templates;
 	}
 
+	//Return view columns
 	public function getColumns($instance)
 	{
 		return array(
@@ -45,11 +60,13 @@ class PageAdminDecorator extends ModelAdminDecorator
 			);
 	}
 
+	//Get the form label
 	public function getLabel($instance)
 	{
 		return $instance->getAttribute('title');
 	}
 
+	//Get the form fields
 	public function getFields()
 	{
 		return array(
@@ -80,7 +97,8 @@ class PageAdminDecorator extends ModelAdminDecorator
 			'template' 			=> array(
 				'label' 		=> 'Template',
 				'type' 			=> 'SelectField',
-				'options' 		=> $this->templateFields
+				'options' 		=> $this->templateFields,
+				'params'		=> ['selected'=>'page']
 				),
 
 			'content' 			=> array(

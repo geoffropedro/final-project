@@ -4,17 +4,20 @@ use Redirect, Auth, View;
 
 class AdminController extends \BaseController
 {
+	//Return the admin homepage
 	public function getIndex()
 	{
 		return View::make('admin::index');
 	}
 
+	//Return the login view
 	public function getLogin()
 	{
 		View::addNamespace('admin', app_path() . '/Admin/views');
 		return View::make('admin::login');
 	}
 
+	//Handle the login post request
 	public function postLogin()
 	{
 		if(Auth::attempt(\Input::only('email','password')))
@@ -24,6 +27,7 @@ class AdminController extends \BaseController
 		return Redirect::back()->withInput()->with('error','<p><b>Email & Password combination not recognised</b></p><p>Please try again or <a href="/admin/password/remind">reset your password</a>');
 	}
 
+	//Logout and redirect to admin -> admin will redirect to login
 	public function getLogout()
 	{
 		Auth::logout();

@@ -1,23 +1,27 @@
 <?php namespace GeoffMillar\Admin\Controllers;
 
-use View, Input, BaseController, Redirect, Auth;
+use View, Input, BaseController, Redirect, Auth, ArrayAccess;
 use GeoffMillar\Admin\Decorators\ModelAdminDecorator;
 use GeoffMillar\Admin\Facades\FieldMapper as FieldMapper;
 
 abstract class ModelAdminController extends BaseController
 {
 	protected $decorator;
+
+	protected $formView 	= 'admin::form';
 	protected $listingView 	= 'admin::overview';
 	protected $editView 	= 'admin::edit';
 	protected $createView 	= 'admin::create';
 	protected $editable		= true;
 
+	//Get the model
 	public function __construct(ModelAdminDecorator $decorator)
 	{
 		$this->decorator = $decorator;
 	}
 
-	protected function getColumnsForInstances(\ArrayAccess $instances)
+	//Treat instance as array. Returns all table columns
+	protected function getColumnsForInstances(ArrayAccess $instances)
 	{
 		$columns = array();
 		foreach($instances as $instance) {
@@ -28,19 +32,22 @@ abstract class ModelAdminController extends BaseController
 		return $columns;
 	}
 
+	//return the get request view with all vars
 	public function index()
 	{
+		//Return model all()
 		$instances = $this->decorator->getListingModels();
 
 		return View::make($this->listingView, array(
 			'instances' => $instances,
-			'controller' => get_class($this),
+			'controller' => get_class($this), 
 			'modelName' => class_basename(get_class($this->decorator->getModel())),
 			'columns' => $this->getColumnsForInstances($instances),
 			'editable' => $this->editable
 		));
 	}
 
+	//Display view to create a new item. GET
 	public function create()
 	{
 		return View::make($this->createView, array(
@@ -53,27 +60,39 @@ abstract class ModelAdminController extends BaseController
 		));
 	}
 
+	//Process new item creation. POST
 	public function store()
 	{
+		//get this model instance
 		$modelInstance = $this->decorator->getModel()->newInstance();
+		//Get this model validation
 		$validation = $modelInstance->getValidator();
+		//Get a post
 		$input = Input::all();
 
+		//If validation passes
 		if ($validation->passesStore($input)) {
+			//Fill this model
 			$modelInstance->fill($input);
+			//Save this model
 			$modelInstance->save();
+			//Redirect to this model @index
 			$response = Redirect::action(get_class($this) . '@index');
 		} else {
+			//Redirect back to previous page with validation errors and input
 			$response = Redirect::back()->withErrors($validation->getErrors())->withInput();
 		}
 
 		return $response;
 	}
 
+	//Show existing item by id. GET
 	public function edit($id)
 	{
+		//Find row
 		$instance = $this->decorator->getModel()->find($id);
 
+		//Make view with instance
 		return View::make($this->editView, array(
 			'model' => $instance,
 			'modelName' => class_basename(get_class($this->decorator->getModel())),
@@ -84,6 +103,7 @@ abstract class ModelAdminController extends BaseController
 		));
 	}
 
+	//Process update. POST
 	public function update($id)
 	{
 		$modelInstance = $this->decorator->getModel()->find($id);
@@ -101,11 +121,11 @@ abstract class ModelAdminController extends BaseController
 		return $response;
 	}
 
+	//Remove item
 	public function destroy($id)
 	{
 		$instance = $this->decorator->getModel()->find($id);
 		$instance->delete();
-
 		return Redirect::action(get_class($this) . '@index');
 	}
 

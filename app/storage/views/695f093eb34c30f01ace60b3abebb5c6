@@ -1,0 +1,41 @@
+
+<?php $__env->startSection('content'); ?>
+
+<?php echo $__env->make('themes.standard.partials.messages', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php if($errors->any()): ?>
+<p>Try adjusting your booking details and clicking the QUOTE button again.</p>
+<p>If you are still having problems using the site then please call <?php echo $settings->company; ?> Parks on:</p>
+<h3><i class="fa fa-phone"></i> <?php echo $settings->telephone; ?></h3>
+<?php endif; ?>
+
+<?php if(Session::has('booking')): ?>
+
+<?php echo $page->content; ?>
+
+<?php $booking = Session::get('booking');?>
+<h3>Total number of parking days = <?php echo $booking->bookingDays; ?></h3>
+
+<h3 class="h-bg" style="background:#6ACFFF;">DEPARTURE DETAILS</h3>
+<p>Date and time you want to be met (not your planes take off time)</p>
+<b>Departing</b> - <span style="color:#D90000"> <?php echo date('D, jS M Y',strtotime($booking->fromDate)); ?> at <?php echo $booking->fromTime; ?></span>
+<br/><br/>
+
+<h3 class="h-bg">RETURN DETAILS</h3>
+<p>Date and time your flight lands back in the UK (not your take off time)</p>
+<b>Departing</b> - <span style="color:#D90000"> <?php echo date('D, jS M Y',strtotime($booking->toDate)); ?> at <?php echo $booking->toTime; ?></span>
+<br/><br/>
+
+<h3 class="h-bg" style="background:#CCCCCC;">PRICE DETAILS</h3>
+<h3>Parking for <?php echo $booking->bookingDays; ?> Days <span class="pull-right" style="color:#D90000">&pound;<?php echo number_format($booking->totalPrice,2); ?></span></h3>
+
+<div class="pull-right">
+<?php echo HTML::link ('/','Cancel', ['class'=>'btn btn-danger']); ?>
+<?php echo HTML::link ('/customer-details','Book Now', ['class'=>'btn btn-success', 'style'=>'width:150px; margin-left:5px']); ?>
+</div>
+
+<?php endif; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('themes.'.$settings->websiteTheme.'.layouts.'.$settings->layout, array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

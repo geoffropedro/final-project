@@ -4,10 +4,13 @@ use GeoffMillar\Admin\Decorators\UserAdminDecorator;
 
 class UserAdminController extends ModelAdminController
 {
-	protected $formView = 'admin::users.form';
-
+	//Override - this is a  test
+	//protected $editView = 'admin::users.create';
+	
+	//Dependency injection
 	public function __construct(UserAdminDecorator $user)
 	{
+		//Construct parent
 		parent::__construct($user);
 	}
 }

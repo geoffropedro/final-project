@@ -1,0 +1,10 @@
+
+<?php $__env->startSection('heading', 'Edit ' . $modelName); ?>
+
+
+<?php echo Form::open(array('action' => 'GeoffMillar\Admin\Controllers\UserAdminController@store')); ?>
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin::form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

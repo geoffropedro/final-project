@@ -1,3 +1,8 @@
+@extends('admin::form')
+
+@section('heading', 'Edit ' . $modelName)
+
+
 {{ Form::open(array('action' => 'GeoffMillar\Admin\Controllers\UserAdminController@store')) }}
 
 	<div class="form-row">
@@ -30,3 +35,5 @@
 	</div>
 
 {{ Form::close() }}
+
+@stop

@@ -1,6 +1,27 @@
 <?php
-$path = 'C:\xampp\htdocs\final-project\airport-operator-v7\public/images/';
-$url = 'http://localhost/final-project/airport-operator-v7/public/images/';
+
+//Dirty fix to get path and url
+$currentUrl = explode("/", $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
+$currentDir = explode("/", getcwd());
+
+$newUrl = '';
+foreach ($currentUrl as $p){
+	if($p == 'packages')
+		break;
+	$newUrl = $newUrl . $p."/";
+}
+
+$newPath = '';
+foreach ($currentDir as $p){
+	if($p == 'packages')
+		break;
+	$newPath = $newPath . $p."/";
+}
+
+// end fix
+
+$path = $newPath.'images/';
+$url = 'http://'.$newUrl.'images/';
 
 //Available directories
 $directories = ['uploads','slider'];
@@ -54,6 +75,5 @@ foreach ($directories as $directory){
 		echo 'No files available. Please use the upload feature if available.';
 	}
 	?>
-	</body>
-	</html>
-	
+</body>
+</html>

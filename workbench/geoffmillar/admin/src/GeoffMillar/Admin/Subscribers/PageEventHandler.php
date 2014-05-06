@@ -7,6 +7,7 @@ class PageEventHandler {
     //Add to content dropdown menu
     public function onRenderMenu(Menu $menu)
     {
+        //Uses fluent for ArrayAccess
         $menu['Pages'] = route('admin.pages.index');
     }
     

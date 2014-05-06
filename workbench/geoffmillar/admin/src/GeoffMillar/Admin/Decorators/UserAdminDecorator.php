@@ -9,6 +9,7 @@ class UserAdminDecorator extends ModelAdminDecorator
 		parent::__construct($user);
 	}
 
+	//Get the columns
 	public function getColumns($instance)
 	{
 		return array(
@@ -18,12 +19,14 @@ class UserAdminDecorator extends ModelAdminDecorator
 			'User type' => $instance->auth,
 			);
 	}
-
+	
+	//Get the form label
 	public function getLabel($instance)
 	{
 		return $instance->getAttribute('name');
 	}
 
+	//Get the form fields
 	public function getFields()
 	{
 		return array(

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Fluent;
 
+//Fluent implements ArrayAccess
 class Menu extends Fluent
 {
 

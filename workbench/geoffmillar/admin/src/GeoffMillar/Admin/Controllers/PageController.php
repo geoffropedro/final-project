@@ -16,6 +16,7 @@ class PageController extends BaseController
 	protected $block;
 	protected $slider;
 
+	//Construct all
 	public function __construct(Setting $setting, Theme $theme, Page $page, Block $block, Slider $slider)
 	{
 		$this->setting 	= $setting;

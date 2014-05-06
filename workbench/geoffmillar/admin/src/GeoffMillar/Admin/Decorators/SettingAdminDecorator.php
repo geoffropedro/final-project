@@ -10,6 +10,7 @@ class SettingAdminDecorator extends ModelAdminDecorator
 		parent::__construct($setting);
 	}
 
+	//Get the columns
 	public function getColumns($instance)
 	{
 		return array(
@@ -19,11 +20,13 @@ class SettingAdminDecorator extends ModelAdminDecorator
 			);
 	}
 
+	//Get the form label
 	public function getLabel($instance)
 	{
 		return $instance->getAttribute('name');
 	}
 
+	//Get the form fields
 	public function getFields()
 	{
 		$fields = [

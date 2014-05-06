@@ -11,15 +11,15 @@ class CreateAdminUser extends Migration {
 		$user = new User();
 		$user->fill(array(
 			'username' => 'admin',
-			'email' => 'admin@geoffmillar.co.uk',
+			'email' => 'geoff@pixperfect.co.uk',
 			'name' => 'GeoffMillar Admin'
 		));
-		$user->password = 'gukbeb6s';
+		$user->password = 'password';
 		$user->save();
 	}
 
 	public function down()
 	{
-		User::where('email', '=', 'admin@geoffmillar.co.uk')->delete();
+		User::where('email', '=', 'geoff@pixperfect.co.uk')->delete();
 	}
 }

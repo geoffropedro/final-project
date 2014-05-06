@@ -1,17 +1,9 @@
 <?php namespace GeoffMillar\Admin\Facades;
 
 use Illuminate\Support\Facades\Facade;
-/**
- * @see \Illuminate\Cache\CacheManager
- * @see \Illuminate\Cache\Repository
- */
+
+//http://laravel.com/docs/facades
+//I need to research facades
 class FieldMapper extends Facade {
-
-	/**
-	 * Get the registered name of the component.
-	 *
-	 * @return string
-	 */
 	protected static function getFacadeAccessor() { return 'field.mapper'; }
-
 }
