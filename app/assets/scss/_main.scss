@@ -52,7 +52,18 @@ h1 				{margin-top:0}
 /* ------------------------------------------------------------- */
 // SLIDER 
 /* ------------------------------------------------------------- */
-#main-slider 	{margin-bottom: 40px}
+#main-slider 				{margin-bottom: 40px}
+.carousel-caption 			{top:40px; right:20px; left:auto!important; font-family: 'Open Sans', sans-serif; font-weight:700 ; font-size:40px; width: 470px; overflow: hidden; text-align:left ; padding:20px;
+
+	background:black;
+	@include opacity(0.6);
+	@include border-radius(20px);
+	max-height:230px;
+	bottom:auto!important;
+
+}
+
+
 
 
 
@@ -115,9 +126,9 @@ h1 				{margin-top:0}
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
 
-.form-wrap {margin:0 0 30px 0;position: relative; background: #EFEFEF}
+	.form-wrap {margin:0 0 30px 0;position: relative; background: #EFEFEF}
 
-.pageWrap  {padding:10px}
+	.pageWrap  {padding:10px}
 
 }
 

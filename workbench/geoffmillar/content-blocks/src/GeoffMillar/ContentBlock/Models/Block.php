@@ -18,6 +18,11 @@ class Block extends Base
 	public static function getBlock($key)
 	{        
 		$block = Block::where('key','=',$key)->first();
-		return $block->content;
+		$result = '';
+
+		if ($block->active)
+			$result = $block->content;
+
+		return $result;
 	}
 }

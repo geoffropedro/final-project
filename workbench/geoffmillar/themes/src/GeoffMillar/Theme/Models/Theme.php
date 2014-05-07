@@ -22,6 +22,9 @@ class Theme extends Base
 	//Get by keyvalue
 	public function getByKeyValue( $key ){
 		$result = $this->where('key',$key)->first();
+
+		
+
 		return $result->value;
 	}
 

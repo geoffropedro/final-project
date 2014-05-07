@@ -42,7 +42,7 @@ class SliderAdminDecorator extends ModelAdminDecorator
 
 			'content' 			=> array(
 				'label' 		=> 'Content',
-				'type' 			=> 'TextAreaField',
+				'type' 			=> 'TextareaField',
 				'title' 		=> 'wysiwyg'
 				),
 

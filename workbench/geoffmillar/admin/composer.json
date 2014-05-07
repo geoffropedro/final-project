@@ -17,9 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "GeoffMillar\\Admin\\": "src/GeoffMillar/Admin",
-            "GeoffMillar\\Admin\\Tests\\": "tests/",
-            "GeoffMillar\\Admin\\Database\\": "database/"
+            "GeoffMillar\\Admin\\": "src/GeoffMillar/Admin"
         },
         "classmap": [
             "src/migrations"

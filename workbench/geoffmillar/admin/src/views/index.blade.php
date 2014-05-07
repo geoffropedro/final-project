@@ -62,8 +62,6 @@
 			@endif
 		</div>
 	</div>
-
 	<a class="btn btn-primary" href="{{URL::to('/')}}/admin/logout"><i class="fa fa-sign-out"></i> Log Out</a>
-
 </div>
 @stop

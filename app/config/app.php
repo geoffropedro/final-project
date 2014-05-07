@@ -111,7 +111,7 @@ return array(
 		'GeoffMillar\ContentBlock\ContentBlockServiceProvider',
 		'GeoffMillar\Theme\ThemeServiceProvider',
 		'GeoffMillar\Slider\SliderServiceProvider',
-		'GeoffMillar\AirportBooking\AirportBookingServiceProvider',
+		'GeoffMillar\Testing\TestingServiceProvider',
 
 		),
 

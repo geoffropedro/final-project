@@ -1,0 +1,11 @@
+
+<?php $__env->startSection('main'); ?>
+@parent
+<?php echo $__env->make('admin::partials.new', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<h1>Testing<h1>
+<p>Empty page</p>
+<?php echo $__env->make('admin::partials.new', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin::layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

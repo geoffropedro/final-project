@@ -37,6 +37,7 @@
 
 	@include('themes.standard.partials.nav')
 
+
 	@if(count($slider) > 0)
 	<div id="main-slider" class="carousel slide hidden-xs" data-ride="carousel">
 		<ol class="carousel-indicators" style="position:absolute; bottom:0">
@@ -70,24 +71,25 @@
 	</div>
 	@endif
 
-	@include('themes.standard.partials.quote-form')
-
-
 	<div class="row">
+		<div class="col-sm-8">
+			@include('themes.standard.partials.quote-form')
+
+			@yield('content')
+		</div>
+
 		<div class="col-sm-4">
 			{{GeoffMillar\ContentBlock\Models\Block::getBlock('call-me-back')}}
 			{{GeoffMillar\ContentBlock\Models\Block::getBlock('find-us')}}
 			{{GeoffMillar\ContentBlock\Models\Block::getBlock('what-others-say')}}
 		</div>
-
-		<div class="col-sm-8">
-			@yield('content')
-		</div>
 	</div>
 </div>
 
 <div class="container">
+
 	<div class="footer-tier-1 full-width">
+
 		<div class="col-md-4">
 			{{GeoffMillar\ContentBlock\Models\Block::getBlock('contact-details')}}
 		</div>
@@ -99,6 +101,7 @@
 		<div class="col-md-4">
 			{{GeoffMillar\ContentBlock\Models\Block::getBlock('reviews')}}
 		</div>
+
 		<div class="clearfix"></div>
 	</div>
 
@@ -106,6 +109,8 @@
 		&copy; Copyright {{$settings->company}} 2014 - All rights reserved site - development by Pixperfect - Airport Parking web systems to rent. 
 	</div>
 </div>
+
+
 {{ HTML::script('js/bootstrap.min.js') }}
 </body>
 </html>

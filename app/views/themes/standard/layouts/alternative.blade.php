@@ -49,11 +49,13 @@
 <div style="background:#E6E6E6">
 	<div class="container pageWrap" style="padding-top:0;padding-bottom:0; background:#E6E6E6">
 		@if(count($slider) > 0)
-		<div id="main-slider" class="carousel slide hidden-xs" data-ride="carousel" style="margin-bottom:0">
+		<div id="main-slider" class="carousel slide hidden-xs" data-ride="carousel">
 			<ol class="carousel-indicators" style="position:absolute; bottom:0">
 				<?php $count = 0; ?>
 				@foreach($slider as $slide)
+				@if($slide->active)
 				<li data-target="#main-slider" data-slide-to="<?= $count; ?>" class="<?= ($count == 0) ? 'active' : ''; ?>"></li>
+				@endif
 				<?php $count++; ?>
 				@endforeach
 			</ol>
@@ -61,6 +63,7 @@
 			<div class="carousel-inner" style="max-height:300px">
 				<?php $count = 0; ?>
 				@foreach($slider as $slide)
+				@if($slide->active)
 				<div class="item <?= ($count == 0) ? 'active' : ''; ?>">
 					{{HTML::image('images/slider/'.$slide->image, $slide->title , ['class'=>'img-responsive','style'=>'min-width:1084px'])}}
 					@if($slide->content)
@@ -70,6 +73,7 @@
 					@endif
 				</div>
 				<?php $count++; ?>
+				@endif
 				@endforeach
 			</div>
 			<a class="left carousel-control" href="#main-slider" data-slide="prev"></a>

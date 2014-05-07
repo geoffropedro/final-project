@@ -1,6 +1,6 @@
 <?php namespace GeoffMillar\Admin\Controllers;
 
-use Redirect, Auth, View;
+use Redirect, Auth, View, File;
 
 class AdminController extends \BaseController
 {
@@ -24,7 +24,7 @@ class AdminController extends \BaseController
 		{
 			return Redirect::to('admin');
 		} 
-		return Redirect::back()->withInput()->with('error','<p><b>Email & Password combination not recognised</b></p><p>Please try again or <a href="/admin/password/remind">reset your password</a>');
+		return Redirect::back()->withInput()->with('error','<p><b>Email & Password combination not recognised</b></p><p>Please try again');
 	}
 
 	//Logout and redirect to admin -> admin will redirect to login
@@ -33,4 +33,5 @@ class AdminController extends \BaseController
 		Auth::logout();
 		return Redirect::to('admin')->with('message', 'Logged out');
 	}
+
 }

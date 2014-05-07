@@ -1,0 +1,30 @@
+
+
+USE pixperf1_airport;
+
+
+
+CREATE TABLE IF NOT EXISTS 'blocks' (
+  'id' int(10) unsigned NOT NULL AUTO_INCREMENT,
+  'key' varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  'label' varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  'content' text COLLATE utf8_unicode_ci NOT NULL,
+  'active' tinyint(1) NOT NULL,
+  'created_at' timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  'updated_at' timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY ('id')
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+
+
+
+INSERT INTO 'blocks' ('id', 'key', 'label', 'content', 'active', 'created_at', 'updated_at') VALUES
+(2, 'fds', 'sdf', '<p>sfdfd</p>\r\n\r\n<p>fdfdgg</p>\r\n\r\n<p>dgfgdf</p>\r\n', 1, '2014-05-02 00:29:38', '2014-05-02 19:38:48'),
+(3, 'contact-details', 'Footer contact details', '<h3>Contact Us</h3>\r\n\r\n<p><span style="color:#D3D3D3">Help-me-park.com Limited, C/O BCR Gatwick Depot, Rusper Road, Ifield, Crawley, West Sussex RH11 0LJ</span></p>\r\n\r\n<div class="theme-colour">\r\n<p><span style="font-size:18px"><strong>0777 326 1152</strong></span><br />\r\n<a class="theme-colour" href="http://www.aerocarparks.co.uk">www.pixperfect.co.uk</a><br />\r\n<a class="theme-colour" href="mailto:info@aerocarparks.co.uk">info@aerocarparks.co.uk</a></p>\r\n</div>\r\n\r\n<p><span style="color:#D3D3D3"><strong>Opening Hours</strong><br />\r\n09:00 to 17:00 - Mon-Fri</span></p>\r\n\r\n<p><span style="color:#D3D3D3">We Accept the following payment methods</span></p>\r\n\r\n<p><img alt="" src="http://localhost/final-project/airport-operator-v7/public/images/uploads/cc-cards.jpg" style="height:28px; width:263px" /></p>\r\n\r\n<p>&nbsp;</p>\r\n', 1, '2014-05-02 19:44:09', '2014-05-04 19:17:15'),
+(4, 'tag-cloud', 'Footer tag cloud', '<h3>Tag Cloud</h3>\r\n<span style="color:#999999;font-size:12px">Meet &amp; Greet Parking at Heathrow </span>\r\n<span style="color:#333333;font-size:12px">Valet parking Heathrow </span>\r\n<span style="color:#444444;font-size:11px">Car Park Heathrow Airport </span>\r\n<span style="color:#444444;font-size:16px">Heathrow Cheap Parking </span>\r\n<span style="color:#999999;font-size:20px">Parking at Heathrow Airport </span>\r\n<span style="color:#999999;font-size:12px">Valet parking At Heathrow </span>\r\n<span style="color:#999999;font-size:12px">Heathrow Airport Meet and Greet </span>\r\n<span style="color:#333333;font-size:18px">Park at Heathrow </span>\r\n<span style="color:#333333;font-size:20px">Heathrow Airport Approved Parking </span>\r\n<span style="color:#333333;font-size:14px">Car Parks Heathrow </span>\r\n<span style="color:#333333;font-size:12px">Heathrow Airport Long Stay Parking </span>', 1, '2014-05-02 19:45:04', '2014-05-02 19:45:04'),
+(5, 'reviews', 'Footer reviews', '<h3>Reviews</h3>\r\n\r\n<p><span style="font-size:12px"><span style="color:rgb(211, 211, 211)">Great service, aero car parks were bang on time and made the whole process very easy ...</span></span></p>\r\n\r\n<p><span style="font-size:12px"><span style="color:rgb(211, 211, 211)">Great service from a great company at a great price, have told all my friends and will definitely use again ...</span></span></p>\r\n\r\n<p><span style="font-size:12px"><span style="color:rgb(211, 211, 211)">Need to go on an unexpected business trip - the convenience of handing my car over at the terminal is worth its weight in gold and time ...</span></span></p>\r\n\r\n<p><span style="font-size:12px"><span style="color:rgb(211, 211, 211)">Great service from a great company at a great price, have told all my friends and will definitely use again ...</span></span></p>\r\n', 1, '2014-05-02 19:45:48', '2014-05-03 05:15:04'),
+(6, 'call-me-back', 'Sidebar call me back', '<div class="box grey-gradient">\r\n<h3>Request a phone call</h3>\r\n\r\n<p><span style="font-size:17px"><strong>Just enter a few details and one of our dedicated customer care team members will call you right back pronto!</strong></span></p>\r\n\r\n<p><span style="font-family:tahoma,geneva,sans-serif"><a class="btn btn-primary" href="/" onclick="alert(''Not in use'');return false" style="width:100%; font-size:22px">Request phone call</a></span></p>\r\n</div>\r\n', 1, '2014-05-04 18:40:26', '2014-05-05 04:50:06'),
+(7, 'find-us', 'Sidebar how to find us', '<div class="box theme-gradient">\r\n<h3><span style="color:#FFFFFF">How To Find Us...</span></h3>\r\n\r\n<p><span style="color:#FFFFFF">Click below to see a map showing where we are!</span></p>\r\n\r\n<p><img alt="" class="img-responsive" src="http://localhost/final-project/airport-operator-v7/public/images/uploads/sidebox-map.png" style="width:100%" /></p>\r\n</div>\r\n', 1, '2014-05-04 18:46:12', '2014-05-04 18:56:25'),
+(8, 'what-others-say', 'Sidebar what others say', '<div class="box grey-gradient">\r\n<h3>What Others Say ...</h3>\r\n\r\n<p><span style="font-size:16px">Hear what our customers have to say about our Heathrow Airport Meet &amp; Greet Valet Parking Service!</span></p>\r\n</div>\r\n', 1, '2014-05-04 18:46:44', '2014-05-04 19:04:36'),
+(9, 'logos', 'Logos', '<p><img alt="" src="http://localhost/final-project/airport-operator-v7/public/images/uploads/british-parking-association-logo.gif" style="height:59px; width:176px" /></p>\r\n\r\n<p><img alt="" src="http://localhost/final-project/airport-operator-v7/public/images/uploads/avpca-logo.gif" style="height:64px; width:200px" /></p>\r\n', 1, '2014-05-04 20:57:34', '2014-05-04 20:58:48'),
+(10, 'side-bar', 'Right side bar New template', '<p><img alt="" class="img-responsive" src="http://localhost/final-project/airport-operator-v7/public/images/uploads/skyparksecure.jpg" /></p>\r\n\r\n<p><img alt="" class="img-responsive" src="http://localhost/final-project/airport-operator-v7/public/images/uploads/eco-book-now.jpg" /></p>\r\n\r\n<p><img alt="" class="img-responsive" src="http://localhost/final-project/airport-operator-v7/public/images/uploads/eco-parking-ad-1.jpg" /></p>\r\n\r\n<p>&nbsp;</p>\r\n', 1, '2014-05-04 21:06:14', '2014-05-04 21:08:18');
+
